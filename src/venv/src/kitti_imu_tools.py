@@ -7,12 +7,18 @@ import config
 import files_utils
 import file_tools
 import sequence_utils
-
+import interface_utils
 
 def main():
 
+    # Configuration
     config.pandas_config()
-    sequence_utils.download_all_sequences()
+
+    # Menu Control
+    while True:
+        interface_utils.main_menu()
+        selected_option = input('Your Selection is:  ')
+        interface_utils.option_selector(selected_option)
 
 
     # input_path = "../../../data/oxts/data"

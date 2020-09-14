@@ -14,26 +14,30 @@ import shutil
 
 # ========================================================================================================
 def download_all_sequences():
+    seq_name = '2011_09_28_drive_0128'
 
     # for each sequence:
-    # --- (1) download the sequence
-    seq_name = '2011_09_28_drive_0128'
-    download_seq(seq_name)
+    # --- (0) check if it was downloaded before
+    if os.path.exists('../../../data/'+seq_name+"_oxts"):
+        print('=> ', seq_name, ' Already exists.')
+    else:
+        # --- (1) download the sequence
+        download_seq(seq_name)
 
-    # --- (2) Extract the file and remove vision and LiDAR files
-    print("---- Unzipping")
-    with zipfile.ZipFile('../../../data/'+seq_name+'.zip', "r") as zip_ref:
-        zip_ref.extractall('../../../data/'+seq_name)
+        # --- (2) Extract the file and remove vision and LiDAR files
+        print("---- Unzipping")
+        with zipfile.ZipFile('../../../data/'+seq_name+'.zip', "r") as zip_ref:
+            zip_ref.extractall('../../../data/'+seq_name)
 
-    # --- (3) Copy oxts folder into data folder
-    print("---- Extracting IMU information")
-    copy_tree('../../../data/'+seq_name+'/'+seq_name[0:10]+'/'+seq_name+'_sync/oxts',
-              '../../../data/'+seq_name+"_oxts")
+        # --- (3) Copy oxts folder into data folder
+        print("---- Extracting IMU information")
+        copy_tree('../../../data/'+seq_name+'/'+seq_name[0:10]+'/'+seq_name+'_sync/oxts',
+                  '../../../data/'+seq_name+"_oxts")
 
-    # --- (4) Delete Downloaded files
-    print("---- Cleaning up !")
-    shutil.rmtree('../../../data/'+seq_name)
-    os.remove('../../../data/'+seq_name+'.zip')
+        # --- (4) Delete Downloaded files
+        print("---- Cleaning up !")
+        shutil.rmtree('../../../data/'+seq_name)
+        os.remove('../../../data/'+seq_name+'.zip')
 
     print('------------------------------------')
 
