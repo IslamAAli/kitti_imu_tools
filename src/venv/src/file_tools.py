@@ -4,40 +4,16 @@
 # ---------------------------------------
 
 import pandas as pd
+import os
+
+import config
 
 
-def read_file_content(file_name):
+def read_seq_list():
+    if os.path.isfile(config.INPUT_SEQ_FILE_PATH):
+        seq_file = open(config.INPUT_SEQ_FILE_PATH, 'r')
+        return seq_file.readlines()
+    else:
+        print('[**ERROR**] Sequences File Dose NOT Exist !')
 
-    data = pd.read_csv(file_name, sep=" ", header=None)
-    data.columns = ['lat',
-                    'lon',
-                    'alt',
-                    'roll',
-                    'pitch',
-                    'yaw',
-                    'vn',
-                    've',
-                    'vf',
-                    'vl',
-                    'vu',
-                    'ax',
-                    'ay',
-                    'az',
-                    'af',
-                    'al',
-                    'au',
-                    'wx',
-                    'wy',
-                    'wz',
-                    'wf',
-                    'wl',
-                    'wu',
-                    'pos_accuracy',
-                    'vel_accuracy',
-                    'navstat',
-                    'numsats',
-                    'posmode',
-                    'velmode',
-                    'orimode']
-    return data
 
