@@ -93,7 +93,7 @@ def download_seq(seq_name):
 
 # ========================================================================================================
 def bar_custom(current, total, width=80):
-    progress_message = "---- Downloading: %d%% [%d / %d] bytes" % (current / total * 100, current, total)
+    progress_message = "---- Downloading: %d%% [%d / %d] MegaBytes" % (current / total * 100, current/1e6, total/1e6)
     # Don't use print() as it will print in new line every time.
     sys.stdout.write("\r" + progress_message)
     sys.stdout.flush()

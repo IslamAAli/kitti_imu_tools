@@ -7,7 +7,7 @@ import pandas as pd
 import file_tools
 
 # System Configurations
-TESTING_MODE = True
+TESTING_MODE = False
 DATA_DIR = '../../../data/'
 INPUT_DIR = '../../../input/'
 OUTPUT_DIR = '../../../output/'
