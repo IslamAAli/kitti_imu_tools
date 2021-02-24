@@ -1,4 +1,5 @@
 import sequence_utils
+import stats_utils
 import sys
 
 
@@ -28,6 +29,8 @@ def option_selector(m_selection):
 
     elif m_selection == "3":
         print('[Selected] [3] Calculate Stats\n')
+        stats_utils.read_all_hdf_files()
+
     elif m_selection == "4":
         print('[Selected] [4] Visualize Stats\n')
     elif m_selection == "5":
