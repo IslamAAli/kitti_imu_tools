@@ -9,6 +9,12 @@ A set of tools for the IMU data available in the [KITTI](http://www.cvlibs.net/d
 1. Generate statistics about the inertial capabilities of KITTI.
 1. Visualize inertial data and resulted statistics. 
 
+## Stats Gathered and Visualized
+1. vehicle accelerations (x,y, and z axes)
+1. vehicle angular velocities (x,y, and z axes)
+1. Velocities (lat, long, alt)
+1. Orientation (roll, pitch, yaw)
+
 ## Screenshots
 TODO
 
