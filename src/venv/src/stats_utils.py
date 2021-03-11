@@ -51,20 +51,20 @@ def read_all_hdf_files():
             hdf_file_content["wz"].mean(),
 
             # Velocities
+            hdf_file_content["vn"].max(),
+            hdf_file_content["vn"].min(),
+            hdf_file_content["vn"].median(),
+            hdf_file_content["vn"].mean(),
+
+            hdf_file_content["ve"].max(),
+            hdf_file_content["ve"].min(),
+            hdf_file_content["ve"].median(),
+            hdf_file_content["ve"].mean(),
+
             hdf_file_content["vf"].max(),
             hdf_file_content["vf"].min(),
             hdf_file_content["vf"].median(),
             hdf_file_content["vf"].mean(),
-
-            hdf_file_content["vl"].max(),
-            hdf_file_content["vl"].min(),
-            hdf_file_content["vl"].median(),
-            hdf_file_content["vl"].mean(),
-
-            hdf_file_content["vu"].max(),
-            hdf_file_content["vu"].min(),
-            hdf_file_content["vu"].median(),
-            hdf_file_content["vu"].mean(),
 
             # Orientation
             hdf_file_content["roll"].max(),
@@ -98,5 +98,6 @@ def read_all_hdf_files():
                                                         'py_max', 'py_min', 'py_median', 'py_mean',
                                                         'yz_max', 'yz_min', 'yz_median', 'yz_mean'])
 
+    print(config.stats_df)
     # saving the stats to an hd5 file
     config.stats_df.to_hdf(config.OUTPUT_DIR + 'stats/KITTI_stats.h5', 'data')

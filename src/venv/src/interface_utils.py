@@ -1,5 +1,6 @@
 import sequence_utils
 import stats_utils
+import visualization_utils
 import sys
 
 
@@ -30,11 +31,16 @@ def option_selector(m_selection):
     elif m_selection == "3":
         print('[Selected] [3] Calculate Stats\n')
         stats_utils.read_all_hdf_files()
+        wait_key_fn()
 
     elif m_selection == "4":
         print('[Selected] [4] Visualize Stats\n')
+        visualization_utils.visualize_stats()
+        wait_key_fn()
+
     elif m_selection == "5":
         sys.exit()
+
     else:
         print('[**Error**] Select a Valid Option !\n')
 
